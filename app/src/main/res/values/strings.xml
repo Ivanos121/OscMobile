@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">IM View Osc</string>
+    <string name="Начало">Начало</string>
+    <string name="Далее">Далее</string>
+    <string name="Адрес_сети">Адрес сети</string>
+    <string name="Номер_порта">Номер порта</string>
+    <string name="Подключение">Подключение</string>
+    <string name="SomeHint">192.168.100.10</string>
+    <string name="SomeHint2">9645</string>
+    <string name="Поиск_настройка_сети">Поиск настройка сети</string>
+    <string name="nameTitle">Общая информация</string>
+    <string name="nameTitle2">Соединение</string>
+    <string name="nameTitle3">Подключение</string>
+    <string name="ztergfvk5">ztergfvk5</string>
+    <string name="connected">connected</string>
+    <string name="wifi_сеть">wi-fi_сеть</string>
+    <string name="IMViewOsc">IM View Osc</string>
+    <string name="item1">Пункт 1</string>
+    <string name="item2">Пункт 2</string>
+    <string name="item3">Выход</string>
+    <string name="EditText">EditText</string>
+    <string name="find">Найденные устройства</string>
+    <string name="device">Мое устройство</string>
+    <string name="ip">192.168.1.1</string>
+    <string name="inet">wilan</string>
+</resources>
