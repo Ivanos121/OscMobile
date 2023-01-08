@@ -1,12 +1,16 @@
 package com.example.myapplication;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,12 +25,14 @@ public class MainActivity extends AppCompatActivity
     TextView t1;
     Button b1;
     EditText editor;
+    Context context;
+    ImageView noWiFi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},1);
         NavigationView navigationView = findViewById(R.id.navigationView);
         navigationView.setItemIconTintList(null);
         //Запарет редактирования текста
@@ -77,4 +83,5 @@ public class MainActivity extends AppCompatActivity
         Intent intent2 = new Intent(this, MainActivity2.class);
         startActivity(intent2);
     }
+
 }

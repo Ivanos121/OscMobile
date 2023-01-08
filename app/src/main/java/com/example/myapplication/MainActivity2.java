@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -60,6 +61,12 @@ public class MainActivity2 extends AppCompatActivity
         startActivity(intent2);
     }
 
+    public void openWiFiSettings(View v)
+    {
+        Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
+        startActivity(intent);
+    }
+
     private boolean checkWifiOnAndConnected()
     {
         TextView t1,t2,t3;
@@ -84,9 +91,11 @@ public class MainActivity2 extends AppCompatActivity
         {
             t1 = findViewById(R.id.textView2);
             t3 = findViewById(R.id.textView4);
+            t2 = findViewById(R.id.textView3);
+            t2.setText("wi-fi");
             t3.setText("отключено");
             if (t1 != null) {
-                t1.setText("wifi отключен");}
+                t1.setText("wifi отключен или недоступен");}
                 return false; // Wi-Fi adapter is OFF
         }
     }

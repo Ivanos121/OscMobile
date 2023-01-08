@@ -11,6 +11,11 @@
     <string name="nameTitle">Общая информация</string>
     <string name="nameTitle2">Соединение</string>
     <string name="nameTitle3">Подключение</string>
+    <string name="nameTitle4">Выбор режима</string>
+    <string name="nameTitle5">Электромагнитные процессы</string>
+    <string name="nameTitle6">Тепловые процессы</string>
+    <string name="nameTitle7">Вентиляционные процессы</string>
+    <string name="nameTitle8">Энергетика</string>
     <string name="ztergfvk5">ztergfvk5</string>
     <string name="connected">connected</string>
     <string name="wifi_сеть">wi-fi_сеть</string>
@@ -23,4 +28,12 @@
     <string name="device">Мое устройство</string>
     <string name="ip">192.168.1.1</string>
     <string name="inet">wilan</string>
+    <string name="wifion">wifi активен</string>
+    <string name="desc">hhh</string>
+    <string name="pr.name1">Электромагнитные процессы</string>
+    <string name="pr.name2">Тепловые процессы</string>
+    <string name="pr.name3">Вентиляционные процессы</string>
+    <string name="pr.name4">Энергетика</string>
+    <string name="button5">Назад</string>
+    <string name="button6">Назад</string>
 </resources>

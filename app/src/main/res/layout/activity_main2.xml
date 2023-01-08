@@ -100,6 +100,7 @@
                     tools:ignore="ContentDescription" />
 
                 <LinearLayout
+                    android:id="@+id/linearLayout"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
@@ -121,17 +122,28 @@
                         android:textColor="@color/black" />
 
                 </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="start"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="557dp"
+                    android:layout_marginBottom="0dp"
+                    android:contentDescription="@string/desc"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:onClick="openWiFiSettings"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_settings" />
+
             </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
         </TableLayout>
 
@@ -194,7 +206,7 @@
                 <EditText
                     android:id="@+id/editTextNumberDecimal"
                     android:layout_width="200dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     android:autofillHints=""
                     android:ems="10"
                     android:hint="@string/SomeHint"
@@ -221,7 +233,7 @@
                     android:ems="10"
                     android:hint="@string/SomeHint2"
                     android:inputType="numberDecimal"
-                    android:textColorHint="#37474F" />
+                    android:textColorHint="#455A64" />
 
                 <TextView
                     android:id="@+id/textView7"
@@ -231,13 +243,6 @@
                     android:textColor="@color/black" />
             </TableRow>
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
         </TableLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

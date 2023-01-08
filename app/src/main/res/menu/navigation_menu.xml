@@ -2,12 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_ip_settings"
-        android:icon="@drawable/iconswfi32"
+        android:icon="@drawable/ic_baseline_save"
         android:onClick="searchWifi"
         android:title="Настройка соединения с устройством" />
     <item
         android:id="@+id/menu_ip_settings2"
-        android:icon="@drawable/iconswfi32"
+        android:icon="@drawable/ic_baseline_settings"
         android:title="Сохранение настроек" />
 
 </menu>
