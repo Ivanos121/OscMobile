@@ -5,17 +5,23 @@ import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.ParseException;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -26,7 +32,7 @@ import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
 import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.HttpEntity;
-import org.apache.hc.core5.http.ParseException;
+//import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -63,7 +69,7 @@ public class MainActivity2 extends AppCompatActivity
                         result = EntityUtils.toString(entity);
                     }
 
-                } catch (ParseException e) {
+                } catch (ParseException | org.apache.hc.core5.http.ParseException e) {
                     e.printStackTrace();
                 } finally {
                     response.close();
@@ -127,6 +133,7 @@ public class MainActivity2 extends AppCompatActivity
                 drawerLayout2.openDrawer(GravityCompat.START);
             }
         });
+
         //Переопределение шрифта
         t1=findViewById(R.id.textTitle2);
         Typeface r1=Typeface.createFromAsset(getAssets(),"fonts/Roboto-Bold.ttf");
@@ -172,15 +179,16 @@ public class MainActivity2 extends AppCompatActivity
         startActivity(intent);
     }
 
+
+
     private boolean checkWifiOnAndConnected()
     {
         TextView t1,t2,t3;
 
         WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-
-        if (wifiMgr.isWifiEnabled())
+        WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
+       if (wifiMgr.isWifiEnabled())
         { // Wi-Fi adapter is ON
-            WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
 
             t1 = findViewById(R.id.textView2);
             t2 = findViewById(R.id.textView3);
@@ -194,6 +202,7 @@ public class MainActivity2 extends AppCompatActivity
         }
         else
         {
+
             t1 = findViewById(R.id.textView2);
             t3 = findViewById(R.id.textView4);
             t2 = findViewById(R.id.textView3);
@@ -210,6 +219,7 @@ public class MainActivity2 extends AppCompatActivity
     {
         super.onResume();
         checkWifiOnAndConnected();
+
     }
 }
 

@@ -90,6 +90,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="61dp"
                 android:layout_height="78dp"
+                android:layout_marginLeft="16dp"
                 android:src="@drawable/ic_baseline_wifi_24"
                 tools:ignore="ContentDescription" />
 

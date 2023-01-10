@@ -80,34 +80,14 @@
             android:layout_marginStart="84dp"
             android:layout_marginTop="68dp"
             android:layout_marginEnd="138dp"
-            android:layout_marginBottom="13dp"
             android:text="@string/IMViewOsc"
             android:textColor="@color/black"
             android:textSize="34sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/editTextTextMultiLine"
-            android:layout_width="match_parent"
-            android:layout_height="468dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="9dp"
-            android:autofillHints=""
-            android:ems="10"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            app:layout_constraintBottom_toTopOf="@+id/button1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text1"
-            tools:ignore="LabelFor,SpeakableTextPresentCheck" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -116,13 +96,25 @@
             android:layout_marginStart="14dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="22dp"
-            android:layout_marginBottom="19dp"
-            app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
             app:layout_constraintEnd_toStartOf="@+id/text1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutToolBar"
             app:srcCompat="@drawable/ic_launcher2"
             tools:ignore="ContentDescription,ImageContrastCheck" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="16dp"
+            android:text="TextView"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
