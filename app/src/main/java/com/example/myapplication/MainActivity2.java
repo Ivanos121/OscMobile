@@ -1,30 +1,121 @@
 package com.example.myapplication;
 
+import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
+
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import org.apache.hc.client5.http.classic.methods.HttpGet;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.http.ParseException;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 
 public class MainActivity2 extends AppCompatActivity
 {
+    class JSONAsyncTask extends AsyncTask<String, Void, String> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected String doInBackground(String... urls) {
+
+            String result = "none";
+
+            CloseableHttpClient httpClient = HttpClients.createDefault();
+
+            try {
+                mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+                String ip_address = mSettings.getString(APP_PREFERENCES_IP, "");
+
+                HttpGet request = new HttpGet("http://"+ip_address+"/request");
+                CloseableHttpResponse response = httpClient.execute(request);
+
+                try {
+                    HttpEntity entity = response.getEntity();
+                    if (entity != null) {
+                        // return it as a String
+                        result = EntityUtils.toString(entity);
+                    }
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } finally {
+                    response.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                try {
+                    httpClient.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            return result;
+        }
+
+        protected void onPostExecute(String result) {
+            try {
+                JSONObject obj = new JSONObject(result);
+                String name= obj.getString("device_name");
+
+                LinearLayout deviceBlock = findViewById(R.id.deviceBlock);
+                deviceBlock.setVisibility(View.VISIBLE);
+                TextView textView8 = findViewById(R.id.textView8);
+                textView8.setText(name);
+
+                mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+                TextView textView9 = findViewById(R.id.textView9);
+                textView9.setText(mSettings.getString(APP_PREFERENCES_IP, ""));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
     TextView t1,t2,t3,t4,t5,t6;
     Button bb1;
+
+    public static final String APP_PREFERENCES = "deviceNetworkSettings";
+    public static final String APP_PREFERENCES_IP = "ip_address";
+
+    SharedPreferences mSettings;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+
         setContentView(R.layout.activity_main2);
 
         DrawerLayout drawerLayout2 = findViewById(R.id.drawerLayout2);
@@ -53,10 +144,24 @@ public class MainActivity2 extends AppCompatActivity
                 drawerLayout2.openDrawer(GravityCompat.START);
             }
         });
+
+        EditText editTextNumberDecimal = findViewById(R.id.editTextNumberDecimal);
+        editTextNumberDecimal.setText(mSettings.getString(APP_PREFERENCES_IP, "192.168.100.10"));
+    }
+
+    public void checkDevice(View v) throws IOException {
+        JSONAsyncTask task = new JSONAsyncTask();
+        task.execute();
     }
 
     public void startThirdActivity(View v)
     {
+        EditText editTextNumberDecimal = findViewById(R.id.editTextNumberDecimal);
+
+        SharedPreferences.Editor editor = mSettings.edit();
+        editor.putString(APP_PREFERENCES_IP, editTextNumberDecimal.getText().toString());
+        editor.apply();
+
         Intent intent2 = new Intent(this, MainActivity3.class);
         startActivity(intent2);
     }
