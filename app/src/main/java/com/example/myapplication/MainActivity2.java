@@ -19,6 +19,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -103,6 +104,17 @@ public class MainActivity2 extends AppCompatActivity
 
             } catch (JSONException e) {
                 e.printStackTrace();
+
+                String name= "Устройство не найдено";
+
+                LinearLayout deviceBlock = findViewById(R.id.deviceBlock);
+                deviceBlock.setVisibility(View.VISIBLE);
+                TextView textView8 = findViewById(R.id.textView8);
+                textView8.setText(name);
+
+                mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+                TextView textView9 = findViewById(R.id.textView9);
+                textView9.setText(mSettings.getString(APP_PREFERENCES_IP, ""));
             }
         }
     };
@@ -169,7 +181,7 @@ public class MainActivity2 extends AppCompatActivity
         editor.putString(APP_PREFERENCES_IP, editTextNumberDecimal.getText().toString());
         editor.apply();
 
-        Intent intent2 = new Intent(this, MainActivity3.class);
+        Intent intent2 = new Intent(this, MainActivity4.class);
         startActivity(intent2);
     }
 
@@ -184,7 +196,7 @@ public class MainActivity2 extends AppCompatActivity
     private boolean checkWifiOnAndConnected()
     {
         TextView t1,t2,t3;
-
+        ImageView im1;
         WifiManager wifiMgr = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         WifiInfo wifiInfo = wifiMgr.getConnectionInfo();
        if (wifiMgr.isWifiEnabled())
@@ -193,6 +205,8 @@ public class MainActivity2 extends AppCompatActivity
             t1 = findViewById(R.id.textView2);
             t2 = findViewById(R.id.textView3);
             t3 = findViewById(R.id.textView4);
+            im1 = findViewById(R.id.imageView);
+            im1.setImageResource(R.drawable.ic_baseline_wifi_24);
             String ssid  = wifiInfo.getSSID();
             t1.setText("wifi активен");
             t2.setText(ssid);
@@ -206,6 +220,8 @@ public class MainActivity2 extends AppCompatActivity
             t1 = findViewById(R.id.textView2);
             t3 = findViewById(R.id.textView4);
             t2 = findViewById(R.id.textView3);
+            im1 = findViewById(R.id.imageView);
+            im1.setImageResource(R.drawable.ic_baseline_wifi_off);
             t2.setText("wi-fi");
             t3.setText("отключено");
             if (t1 != null) {

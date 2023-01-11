@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">IM View Osc</string>
     <string name="Начало">Начало</string>
-    <string name="Далее">Далее</string>
+    <string name="Далее">Подключение</string>
     <string name="Адрес_сети">Адрес сети</string>
     <string name="Номер_порта">Номер порта</string>
     <string name="Подключение">Подключение</string>
     <string name="SomeHint">192.168.100.10</string>
     <string name="SomeHint2">9645</string>
-    <string name="Поиск_настройка_сети">Поиск настройка сети</string>
+    <string name="Поиск_настройка_сети">Поиск и настройка устройства</string>
     <string name="nameTitle">Общая информация</string>
     <string name="nameTitle2">Соединение</string>
     <string name="nameTitle3">Подключение</string>

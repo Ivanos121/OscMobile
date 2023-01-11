@@ -105,11 +105,11 @@ public class MainActivity extends AppCompatActivity
         startActivity(intent2);
     }
 
-    public String getScreenDensity(Context context)
+    public String getScreenDensity()
     {
 
         String density;
-        switch (context.getResources().getDisplayMetrics().densityDpi)
+        switch (getResources().getDisplayMetrics().densityDpi)
         {
             case DisplayMetrics.DENSITY_LOW:
                 density = "LDPI";
@@ -172,5 +172,6 @@ public class MainActivity extends AppCompatActivity
     protected void onResume()
     {
         super.onResume();
+        getScreenDensity();
     }
 }
