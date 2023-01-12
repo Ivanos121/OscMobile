@@ -11,6 +11,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity3 extends AppCompatActivity {
 
@@ -19,14 +25,13 @@ public class MainActivity3 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        DrawerLayout drawerLayout3 = findViewById(R.id.drawerLayout3);
-        findViewById(R.id.imageView3).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-                drawerLayout3.openDrawer(GravityCompat.START);
-            }
-        });
+        TabLayout tabLayout = findViewById(R.id.sliding_tabs);
+        ViewPager2 viewpager2 = findViewById(R.id.viewpager21);
+        new TabLayoutMediator(tabLayout, viewpager2,
+                (tab, position) -> tab.setText("OBJECT " + (position + 1))
+        ).attach();
+
+
     }
 
    private void addip(){

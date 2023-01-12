@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IM View Osc</string>
+    <string name="app_name">IM View Mobile</string>
     <string name="Начало">Начало</string>
     <string name="Далее">Подключение</string>
     <string name="Адрес_сети">Адрес сети</string>
@@ -19,7 +19,7 @@
     <string name="ztergfvk5">ztergfvk5</string>
     <string name="connected">connected</string>
     <string name="wifi_сеть">wi-fi_сеть</string>
-    <string name="IMViewOsc">IM View Osc</string>
+    <string name="IMViewOsc">IM View Mobile</string>
     <string name="item1">Пункт 1</string>
     <string name="item2">Пункт 2</string>
     <string name="item3">Выход</string>
@@ -36,4 +36,6 @@
     <string name="pr.name4">Энергетика</string>
     <string name="button5">Назад</string>
     <string name="button6">Назад</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
