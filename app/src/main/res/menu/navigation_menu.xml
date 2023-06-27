@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <item
-        android:id="@+id/menu_ip_settings"
-        android:icon="@drawable/ic_baseline_save"
-        android:onClick="searchWifi"
-        android:title="Настройка соединения с устройством" />
+        android:id="@+id/f_start"
+        android:icon="@drawable/baseline_home_24"
+        android:title="Старт" />
     <item
-        android:id="@+id/menu_ip_settings2"
+        android:id="@+id/f_connect"
+        android:icon="@drawable/ic_baseline_wifi_24"
+        android:title="Подключение" />
+    <item
+        android:id="@+id/f_enter_regim"
+        android:icon="@drawable/baseline_keyboard_command_key_24"
+        android:title="Выбор режима" />
+    <item
+        android:id="@+id/f_electromagn"
+        android:icon="@drawable/ic_baseline_trending_down"
+        android:title="Электромагн. процессы" />
+    <item
+        android:id="@+id/f_tepl"
+        android:icon="@drawable/ic_baseline_waves"
+        android:title="Тепловые процессы" />
+    <item
+        android:id="@+id/f_vent"
+        android:icon="@drawable/ic_baseline_stream"
+        android:title="Вентиляционные процессы" />
+    <item
+        android:id="@+id/f_energo"
+        android:icon="@drawable/ic_baseline_star"
+        android:title="Энергетика" />
+    <item
+        android:id="@+id/f_config"
         android:icon="@drawable/ic_baseline_settings"
-        android:title="Сохранение настроек" />
+        android:title="Настройки" />
+    <item
+        android:id="@+id/f_about"
+        android:icon="@drawable/ic_launcher_36"
+        android:title="О программе" />
 
 </menu>

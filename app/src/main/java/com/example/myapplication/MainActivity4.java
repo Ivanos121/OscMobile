@@ -44,11 +44,6 @@ public class MainActivity4 extends AppCompatActivity
             startActivity(intent);
         });
 
-        ImageView imageView4 = findViewById(R.id.imageView9);
-        imageView4.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity4.this, MainActivity8.class);
-            startActivity(intent);
-        });
     }
 
 }

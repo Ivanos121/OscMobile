@@ -163,14 +163,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 
-        </TableLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="150dp" />
+        </TableLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
