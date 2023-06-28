@@ -3,15 +3,16 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,11 +22,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
 
 public class F_connect extends Fragment {
 
@@ -214,4 +212,28 @@ public class F_connect extends Fragment {
 
     }
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        getView().setFocusableInTouchMode(true);
+        getView().requestFocus();
+        getView().setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        F_start fragmentFirst = new F_start();
+                        FragmentManager fragmentManager = getFragmentManager();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.replace(R.id.frame, fragmentFirst);
+                        fragmentTransaction.commit();
+                        // помечаем в драйвере первый фрагмент
+                        //MainActivity.navigationView.getMenu().getItem(0).setChecked(true);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+    }
 }
