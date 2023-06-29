@@ -56,7 +56,7 @@ public class F_start extends Fragment {
         });
         return view;
     }
-    @Override
+    /*@Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         getView().setFocusableInTouchMode(true);
@@ -74,5 +74,5 @@ public class F_start extends Fragment {
                 return false;
             }
         });
-    }
+    }*/
 }

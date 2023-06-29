@@ -40,6 +40,8 @@ public class F_electromagn extends Fragment {
     SharedPreferences mSettings;
     String ip_address;
 
+    Timer dataRequestTimer;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,7 +81,7 @@ public class F_electromagn extends Fragment {
         TextView omegas = (TextView) view.findViewById(R.id.omega);
         TextView moments = (TextView) view.findViewById(R.id.moment);
 
-
+        dataRequestTimer = new Timer();
         //naprA.setVisibility(View.GONE);
 
         b2.setOnClickListener(new View.OnClickListener() {
@@ -94,7 +96,7 @@ public class F_electromagn extends Fragment {
             }
         });
 
-        new Timer().scheduleAtFixedRate(new TimerTask() {
+        dataRequestTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 HttpURLConnection connection = null;
@@ -136,37 +138,38 @@ public class F_electromagn extends Fragment {
                     String omega = obj.getString("omega");
                     String moment = obj.getString("moment");
 
+                    if (getActivity() != null) {
+                        getActivity().runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                naprA.setText(Ua);
+                                naprB.setText(Ub);
+                                naprC.setText(Uc);
+                                tokA.setText(Ia);
+                                tokB.setText(Ib);
+                                tokC.setText(Ic);
+                                activA.setText(Pa);
+                                activB.setText(Pb);
+                                activC.setText(Pc);
+                                reactivA.setText(Qa);
+                                reactivB.setText(Qb);
+                                reactivC.setText(Qc);
+                                polnA.setText(Sa);
+                                polnB.setText(Sb);
+                                polnC.setText(Sc);
+                                activ_summ.setText(Psumm);
+                                reaktiv_summ.setText(Qsumm);
+                                poln_summ.setText(Ssumm);
+                                koeffA.setText(coff_A);
+                                koeffB.setText(coff_B);
+                                koeffC.setText(coff_C);
+                                koeffpoln.setText(coff_summ);
+                                omegas.setText(omega);
+                                moments.setText(moment);
 
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            naprA.setText(Ua);
-                            naprB.setText(Ub);
-                            naprC.setText(Uc);
-                            tokA.setText(Ia);
-                            tokB.setText(Ib);
-                            tokC.setText(Ic);
-                            activA.setText(Pa);
-                            activB.setText(Pb);
-                            activC.setText(Pc);
-                            reactivA.setText(Qa);
-                            reactivB.setText(Qb);
-                            reactivC.setText(Qc);
-                            polnA.setText(Sa);
-                            polnB.setText(Sb);
-                            polnC.setText(Sc);
-                            activ_summ.setText(Psumm);
-                            reaktiv_summ.setText(Qsumm);
-                            poln_summ.setText(Ssumm);
-                            koeffA.setText(coff_A);
-                            koeffB.setText(coff_B);
-                            koeffC.setText(coff_C);
-                            koeffpoln.setText(coff_summ);
-                            omegas.setText(omega);
-                            moments.setText(moment);
-
-                        }
-                    });
+                            }
+                        });
+                    }
 
 
                 } catch (IOException e) {
@@ -181,6 +184,12 @@ public class F_electromagn extends Fragment {
         }, 0, 1000);
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        dataRequestTimer.cancel();
     }
 
     @Override

@@ -48,7 +48,8 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="192.168.100.10" />
+                    android:text="192.168.100.10"
+                    android:visibility="visible" />
 
                 <TextView
                     android:id="@+id/textView6"

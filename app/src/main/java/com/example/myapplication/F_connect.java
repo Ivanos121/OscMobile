@@ -215,9 +215,10 @@ public class F_connect extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //getView().findViewById(R.id.editTextNumberDecimal).setVisibility(View.GONE);
         getView().setFocusableInTouchMode(true);
-        getView().requestFocus();
-        getView().setOnKeyListener(new View.OnKeyListener() {
+        getView().findViewById(R.id.editTextNumberDecimal).requestFocus();
+        getView().findViewById(R.id.editTextNumberDecimal).setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
