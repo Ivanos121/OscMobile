@@ -42,16 +42,14 @@ public class F_start extends Fragment {
         Button b1 = (Button) view.findViewById(R.id.btn_fragment_1);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                set_add_fragment();
-            }
-            F_connect f_connect = new F_connect();
-            private void set_add_fragment() {
+            public void onClick(View v)
+            {
+                F_connect fconnect = new F_connect();
+                FragmentTransaction ft1 = getParentFragmentManager().beginTransaction();
+                ft1.replace(R.id.list, fconnect);
+                ft1.commit();
 
-                FragmentTransaction ft = getParentFragmentManager().beginTransaction();
-                ft.replace(R.id.frame, f_connect);
-                ft.commit();
-               // ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Подключение");
+
             }
         });
         return view;

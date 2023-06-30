@@ -3,13 +3,16 @@ package com.example.myapplication;
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -20,6 +23,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -33,21 +41,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private Button btn_fragment;
     private FrameLayout frameLayout;
-   /* private ViewPager2 viewPager2;
+    private ViewPager2 viewPager2;
     private static final int NUM_PAGES = 5;
 
+    private LinearLayout linearLayout;
+
     private FragmentStateAdapter pagerAdapter;
-*/
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-    /*    viewPager2 = findViewById(R.id.viewPager);
-        pagerAdapter = new F_electromagn().ScreenSlidePageAdapter(this);
+        viewPager2 = findViewById(R.id.pager);
+        viewPager2.setVisibility(View.GONE);
+        pagerAdapter = new ScreenSlidePageAdapter(this);
         viewPager2.setAdapter(pagerAdapter);
-*/
+        linearLayout = findViewById(R.id.list);
+
+        FragmentManager fragmentActivity = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentActivity.beginTransaction();
+
+        // добавляем фрагмент
+        F_start ff1 = new F_start();
+        fragmentTransaction.add(R.id.list, ff1);
+        fragmentTransaction.commit();
+
         requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         t1 = findViewById(R.id.textView29);
         Typeface r1 = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
@@ -75,23 +96,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         F_config f_config = new F_config();
         F_about f_about = new F_about();
 
-        if (savedInstanceState == null) {
+  /*      if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_start()).commit();
             navigationView.setCheckedItem(R.id.f_start);
         }
-
+*/
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.f_start:
+                linearLayout.setVisibility(View.VISIBLE);
+                viewPager2.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_start()).commit();
                 break;
             case R.id.f_connect:
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_connect()).commit();
                 break;
             case R.id.f_enter_regim:
+                resieve();
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_enter_regim()).commit();
                 break;
             case R.id.f_electromagn:
@@ -118,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
- /*    @Override
+ /*   @Override
 
     public void onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
@@ -127,10 +151,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             MainActivity.super.onBackPressed();
         }
     }
-
+*/
    public static class ScreenSlidePageAdapter extends FragmentStateAdapter {
-        public ScreenSlidePageAdapter(F_electromagn f_electromagn) {
-            super(f_electromagn);
+        public ScreenSlidePageAdapter(MainActivity mainActivity) {
+            super(mainActivity);
         }
 
         @NonNull
@@ -157,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         public int getItemCount() {
             return NUM_PAGES;
         }
-    }*/
+    }
 
     @Override
     public void onBackPressed()
@@ -187,4 +211,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         quitDialog.show();
     }
+
+    void resieve()
+    {
+        linearLayout.setVisibility(View.GONE);
+        viewPager2.setVisibility(View.VISIBLE);
+    }
 }
+

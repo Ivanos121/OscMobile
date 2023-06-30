@@ -55,7 +55,7 @@ public class F_vent extends Fragment {
                         fragmentTransaction.replace(R.id.frame, fragmentFirst);
                         fragmentTransaction.commit();
                         // помечаем в драйвере первый фрагмент
-                        //MainActivity.navigationView.getMenu().getItem(0).setChecked(true);
+                        ((TextView)getActivity().findViewById(R.id.textView29)).setText("Вентиляц. процессы");
                         return true;
                     }
                 }

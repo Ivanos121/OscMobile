@@ -33,7 +33,7 @@ public class F_tepl extends Fragment {
                 FragmentTransaction ft1 = getParentFragmentManager().beginTransaction();
                 ft1.replace(R.id.frame, f_enter_regim);
                 ft1.commit();
-                // ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Выбор режима");
+                ((TextView)getActivity().findViewById(R.id.textView29)).setText("Тепловые процессы");
 
             }
         });
@@ -55,8 +55,7 @@ public class F_tepl extends Fragment {
                         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                         fragmentTransaction.replace(R.id.frame, fragmentFirst);
                         fragmentTransaction.commit();
-                        // помечаем в драйвере первый фрагмент
-                        //MainActivity.navigationView.getMenu().getItem(0).setChecked(true);
+
                         return true;
                     }
                 }

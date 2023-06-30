@@ -63,11 +63,12 @@ public class F_enter_regim extends Fragment {
             @Override
             public void onClick(View v)
             {
-                F_electromagn f_electromagn = new F_electromagn();
+               /* F_electromagn f_electromagn = new F_electromagn();
                 FragmentTransaction ft1 = getParentFragmentManager().beginTransaction();
                 ft1.replace(R.id.frame, f_electromagn);
-                ft1.commit();
+                ft1.commit();*/
                // ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Электромагн. процессы");
+
 
             }
         });

@@ -33,7 +33,7 @@ public class F_energo extends Fragment {
                 FragmentTransaction ft1 = getParentFragmentManager().beginTransaction();
                 ft1.replace(R.id.frame, f_enter_regim);
                 ft1.commit();
-                // ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Выбор режима");
+                ((TextView)getActivity().findViewById(R.id.textView29)).setText("Энергетика");
 
             }
         });

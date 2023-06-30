@@ -54,7 +54,7 @@ public class F_connect extends Fragment {
         t1.setVisibility(View.GONE);
 
         Button b2 = (Button) view.findViewById(R.id.button7);
-        b2.setVisibility(View.GONE);
+       // b2.setVisibility(View.GONE);
 
         b1.setOnClickListener(new View.OnClickListener() {
 
@@ -135,18 +135,15 @@ public class F_connect extends Fragment {
 
            b2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                set_add_fragment_2();
+            public void onClick(View v)
+            {
+                F_enter_regim ff1 = new F_enter_regim();
+                FragmentTransaction fu1 = getParentFragmentManager().beginTransaction();
+                fu1.replace(R.id.list, ff1);
+                fu1.commit();
+                ((MainActivity) getActivity()).resieve();
             }
-            F_enter_regim f_enter_regim = new F_enter_regim();
-            private void set_add_fragment_2() {
-
-                FragmentTransaction ft1 = getParentFragmentManager().beginTransaction();
-                ft1.replace(R.id.frame, f_enter_regim);
-                ft1.commit();
-               // ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Выбор режима");
-            }
-        });
+           });
         return view;
     }
 
