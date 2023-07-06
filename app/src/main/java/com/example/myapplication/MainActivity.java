@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private LinearLayout linearLayout;
 
     private FragmentStateAdapter pagerAdapter;
+    private FragmentTransaction frag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +110,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.f_start:
                 linearLayout.setVisibility(View.VISIBLE);
                 viewPager2.setVisibility(View.GONE);
+
+              /*  frag.replace(R.id.frame,f_start);
+                frag.addToBackStack(null);
+                frag.commit();*/
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_start()).commit();
                 break;
             case R.id.f_connect:
@@ -116,24 +121,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.f_enter_regim:
                 resieve();
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_enter_regim()).commit();
+                viewPager2.setCurrentItem(0);
+                ((TextView) findViewById(R.id.textView29)).setText("Выбор режима");
+                //getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_enter_regim()).commit();
                 break;
             case R.id.f_electromagn:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_electromagn()).commit();
+                resieve();
+                viewPager2.setCurrentItem(1);
+                ((TextView) findViewById(R.id.textView29)).setText("Электромагн. процессы");
+               // getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_electromagn()).commit();
                 break;
             case R.id.f_tepl:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_tepl()).commit();
+                resieve();
+                viewPager2.setCurrentItem(2);
+                ((TextView) findViewById(R.id.textView29)).setText("Тепловые режимы");
+               // getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_tepl()).commit();
                 break;
             case R.id.f_vent:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_vent()).commit();
+                resieve();
+                viewPager2.setCurrentItem(3);
+                ((TextView) findViewById(R.id.textView29)).setText("Вентиляц. режимы");
+               // getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_vent()).commit();
                 break;
             case R.id.f_energo:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_energo()).commit();
+                resieve();
+                viewPager2.setCurrentItem(4);
+                ((TextView) findViewById(R.id.textView29)).setText("Энергетика");
+                //getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_energo()).commit();
                 break;
             case R.id.f_config:
+                ((TextView) findViewById(R.id.textView29)).setText("Настройки");
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_config()).commit();
                 break;
             case R.id.f_about:
+                ((TextView) findViewById(R.id.textView29)).setText("О программе");
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_about()).commit();
                 break;
         }
@@ -195,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 MainActivity.this);
         quitDialog.setTitle("Выход: Вы уверены?");
 
-        quitDialog.setPositiveButton("Таки да!", new DialogInterface.OnClickListener() {
+        quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
