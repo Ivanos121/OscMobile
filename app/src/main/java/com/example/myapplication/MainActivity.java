@@ -49,6 +49,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FragmentStateAdapter pagerAdapter;
     private FragmentTransaction frag;
 
+    F_start f_start;
+    F_connect f_connect;
+    F_enter_regim f_enter_regim;
+    F_electromagn f_electromagn;
+    F_tepl f_tepl;
+    F_energo f_energo;
+    F_config f_config;
+    F_about f_about;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -88,15 +97,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         frameLayout = findViewById(R.id.frame);
-        F_start f_start = new F_start();
-        F_connect f_connect = new F_connect();
-        F_enter_regim f_enter_regim = new F_enter_regim();
-        F_electromagn f_electromagn = new F_electromagn();
-        F_tepl f_tepl = new F_tepl();
-        F_energo f_energo = new F_energo();
-        F_config f_config = new F_config();
-        F_about f_about = new F_about();
+        f_start = new F_start();
+        f_connect = new F_connect();
+        //f_enter_regim = new F_enter_regim();
+        //f_electromagn = new F_electromagn();
+        //f_tepl = new F_tepl();
+        //f_energo = new F_energo();
+        f_config = new F_config();
+        f_about = new F_about();
 
+        viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
+
+                switch (position) {
+                    case 0:
+                        ((TextView) findViewById(R.id.textView29)).setText("Выбор режима");
+                        break;
+                    case 1:
+                        ((TextView) findViewById(R.id.textView29)).setText("Электромагн. процессы");
+                        break;
+                    case 2:
+                        ((TextView) findViewById(R.id.textView29)).setText("Тепловые режимы");
+                        break;
+                    case 3:
+                        ((TextView) findViewById(R.id.textView29)).setText("Вентиляц. режимы");
+                        break;
+                    case 4:
+                        ((TextView) findViewById(R.id.textView29)).setText("Энергетика");
+                        break;
+                }
+
+            }
+        });
   /*      if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_start()).commit();
             navigationView.setCheckedItem(R.id.f_start);
@@ -114,10 +148,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
               /*  frag.replace(R.id.frame,f_start);
                 frag.addToBackStack(null);
                 frag.commit();*/
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_start()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.list, f_start).commit();
+                linearLayout.setVisibility(View.VISIBLE);
+                viewPager2.setVisibility(View.GONE);
                 break;
             case R.id.f_connect:
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_connect()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.list, f_connect).commit();
                 break;
             case R.id.f_enter_regim:
                 resieve();
@@ -151,11 +187,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.f_config:
                 ((TextView) findViewById(R.id.textView29)).setText("Настройки");
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_config()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.list, f_config).commit();
                 break;
             case R.id.f_about:
                 ((TextView) findViewById(R.id.textView29)).setText("О программе");
-                getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_about()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.list, f_about).commit();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -173,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 */
-   public static class ScreenSlidePageAdapter extends FragmentStateAdapter {
+   public class ScreenSlidePageAdapter extends FragmentStateAdapter {
         public ScreenSlidePageAdapter(MainActivity mainActivity) {
             super(mainActivity);
         }
@@ -189,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 case 2:
                     return new F_tepl();
                 case 3:
+                    //((TextView) MainActivity.this.findViewById(R.id.textView29)).setText("Вентиляц. режимы");
                     return new F_vent();
                 case 4:
                     return new F_energo();
