@@ -181,8 +181,6 @@ public class MainActivity2 extends AppCompatActivity
         editor.putString(APP_PREFERENCES_IP, editTextNumberDecimal.getText().toString());
         editor.apply();
 
-        Intent intent2 = new Intent(this, MainActivity4.class);
-        startActivity(intent2);
     }
 
     public void openWiFiSettings(View v)

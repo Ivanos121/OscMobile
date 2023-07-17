@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -52,9 +54,7 @@ public class F_electromagn extends Fragment {
         mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         ip_address = mSettings.getString(APP_PREFERENCES_IP, "");
 
-        ((TextView) getActivity().findViewById(R.id.textView29)).setText("Электромагн. процессы");
-
-        Button b2 = (Button) view.findViewById(R.id.button4);
+       // ((TextView) getActivity().findViewById(R.id.textTitle)).setText("Электромагн. процессы");
 
         TextView naprA = (TextView) view.findViewById((R.id.naprA));
         TextView naprB = (TextView) view.findViewById((R.id.naprB));
@@ -83,18 +83,6 @@ public class F_electromagn extends Fragment {
 
         dataRequestTimer = new Timer();
         //naprA.setVisibility(View.GONE);
-
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                F_enter_regim f_enter_regim = new F_enter_regim();
-                FragmentTransaction ft1 = getParentFragmentManager().beginTransaction();
-                ft1.replace(R.id.frame, f_enter_regim);
-                ft1.commit();
-                // ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Выбор режима");
-
-            }
-        });
 
         dataRequestTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -192,28 +180,5 @@ public class F_electromagn extends Fragment {
         dataRequestTimer.cancel();
     }
 
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getView().setFocusableInTouchMode(true);
-        getView().requestFocus();
-        getView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN) {
-                    if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        F_start fragmentFirst = new F_start();
-                        FragmentManager fragmentManager = getFragmentManager();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.frame, fragmentFirst);
-                        fragmentTransaction.commit();
-                        // помечаем в драйвере первый фрагмент
-                        //MainActivity.navigationView.getMenu().getItem(0).setChecked(true);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-    }
+
 }

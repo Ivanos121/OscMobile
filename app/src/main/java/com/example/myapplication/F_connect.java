@@ -9,6 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.OnBackPressedCallback;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -24,6 +29,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
+import java.util.Objects;
 
 public class F_connect extends Fragment {
 
@@ -37,9 +43,11 @@ public class F_connect extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             Bundle savedInstanceState)
+    {
         // Inflate the layout for this fragment
 
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
         mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
         View view = inflater.inflate(R.layout.fragment_f_connect, container, false);
@@ -48,13 +56,22 @@ public class F_connect extends Fragment {
         TextView ipAddressEdit = (TextView) view.findViewById(R.id.editTextNumberDecimal);
         ipAddressEdit.setText(mSettings.getString(APP_PREFERENCES_IP, "192.168.100.10"));
 
-        ((TextView)getActivity().findViewById(R.id.textView29)).setText("Настройка подключения");
+        ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Настройка подключения");
 
         TextView t1 = (TextView) view.findViewById(R.id.textView26);
         t1.setVisibility(View.GONE);
 
         Button b2 = (Button) view.findViewById(R.id.button7);
-       // b2.setVisibility(View.GONE);
+
+        b2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ((MainActivity) requireActivity()).onFragment2NextClick();
+
+            }
+        });
 
         b1.setOnClickListener(new View.OnClickListener() {
 
@@ -133,17 +150,7 @@ public class F_connect extends Fragment {
             }
         });
 
-           b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                F_enter_regim ff1 = new F_enter_regim();
-                FragmentTransaction fu1 = getParentFragmentManager().beginTransaction();
-                fu1.replace(R.id.list, ff1);
-                fu1.commit();
-                ((MainActivity) getActivity()).resieve();
-            }
-           });
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
         return view;
     }
 
@@ -194,44 +201,12 @@ public class F_connect extends Fragment {
         startActivity(intent);
     }*/
 
-
-    @Override
-    public void onResume() {
-        super.onResume();
-
- /*   Timer timer = new Timer();
-    timer.schedule(new UpdateTimeTask(), 0, 1000);
-    class UpdateTimeTask extends TimerTask {
-        public void run() {
-            checkWifiOnAndConnected();
-        }*/
-
-
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        //getView().findViewById(R.id.editTextNumberDecimal).setVisibility(View.GONE);
-        getView().setFocusableInTouchMode(true);
-        getView().findViewById(R.id.editTextNumberDecimal).requestFocus();
-        getView().findViewById(R.id.editTextNumberDecimal).setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN) {
-                    if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        F_start fragmentFirst = new F_start();
-                        FragmentManager fragmentManager = getFragmentManager();
-                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                        fragmentTransaction.replace(R.id.frame, fragmentFirst);
-                        fragmentTransaction.commit();
-                        // помечаем в драйвере первый фрагмент
-                        //MainActivity.navigationView.getMenu().getItem(0).setChecked(true);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-    }
+    OnBackPressedCallback callback = new OnBackPressedCallback(true)
+    {
+        @Override
+        public void handleOnBackPressed()
+        {
+            ((MainActivity) requireActivity()).onFragment2BackClick();
+        }
+    };
 }

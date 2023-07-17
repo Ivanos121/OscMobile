@@ -49,9 +49,4 @@ public class MainActivity3 extends AppCompatActivity {
         super.onResume();
         addip();
     }
-
-    public void startForthActivity(View view)  {
-        Intent intent3 = new Intent(this, MainActivity4.class);
-        startActivity(intent3);
-    }
 }

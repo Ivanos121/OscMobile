@@ -12,10 +12,6 @@
         android:icon="@drawable/ic_baseline_wifi_24"
         android:title="Подключение" />
     <item
-        android:id="@+id/f_enter_regim"
-        android:icon="@drawable/baseline_keyboard_command_key_24"
-        android:title="Выбор режима" />
-    <item
         android:id="@+id/f_electromagn"
         android:icon="@drawable/ic_baseline_trending_down"
         android:title="Электромагн. процессы" />
@@ -37,7 +33,6 @@
         android:title="Настройки" />
     <item
         android:id="@+id/f_about"
-        android:icon="@drawable/ic_launcher_36"
+        android:icon="@drawable/baseline_help_24"
         android:title="О программе" />
-
 </menu>

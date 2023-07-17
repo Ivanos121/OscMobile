@@ -624,15 +624,4 @@
 
 </ScrollView>
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="center_horizontal"
-        android:backgroundTint="#33cc33"
-        android:checkable="false"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:text="Назад"
-        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

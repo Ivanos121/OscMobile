@@ -16,7 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,13 +28,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    //Объявление переменных
+public class MainActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
+
+      //Объявление переменных
     TextView t1, t2;
     Button b1;
     EditText editor;
@@ -42,174 +51,120 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Button btn_fragment;
     private FrameLayout frameLayout;
     private ViewPager2 viewPager2;
-    private static final int NUM_PAGES = 5;
+    NavController navController;
+
+    private TabLayout tabLayout;
+    private static final int NUM_PAGES = 4;
 
     private LinearLayout linearLayout;
 
     private FragmentStateAdapter pagerAdapter;
     private FragmentTransaction frag;
 
-    F_start f_start;
-    F_connect f_connect;
-    F_enter_regim f_enter_regim;
-    F_electromagn f_electromagn;
-    F_tepl f_tepl;
-    F_energo f_energo;
-    F_config f_config;
-    F_about f_about;
+    final OnBackPressedCallback onBackPressedCallback = new OnBackPressedCallback(true)
+    {
+        //Вызов функции вызова диалогового окна закрытия приложения
+        @Override
+        public void handleOnBackPressed() {
+            showAppClosingDialog();
+        }
+
+        //Объявление функции вызова диалогового окна закрытия приложения
+        private void showAppClosingDialog()
+        {
+            //Context context = new ContextThemeWrapper(SelectImageActivity.this, R.style.AppTheme2);
+            MaterialAlertDialogBuilder r = new MaterialAlertDialogBuilder(MainActivity.this);
+            r.setTitle("Warning");
+            r.setMessage("Do you really want to close the app?");
+            r.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            r.setNegativeButton("No", null);
+            r.show();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //связь функции callbak и диалогового окна закрытия приложения
+        getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
+
+        //формирование меню
+        drawerLayout = findViewById(R.id.drawerLayout);
+        DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
+        findViewById(R.id.imageMenu).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+
+        //Объявление navcontroller
+        NavigationView navigationView = findViewById(R.id.navigationView);
+        navigationView.setItemIconTintList(null);
+
+        navController = Navigation.findNavController(this, R.id.navHostFragment);
+        NavigationUI.setupWithNavController(navigationView,navController);
+
+        TextView textTitle = findViewById(R.id.textTitle);
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
+                textTitle.setText(navDestination.getLabel());
+            }
+        });
+
+        //Объявление Viewpager2
         viewPager2 = findViewById(R.id.pager);
         viewPager2.setVisibility(View.GONE);
         pagerAdapter = new ScreenSlidePageAdapter(this);
         viewPager2.setAdapter(pagerAdapter);
         linearLayout = findViewById(R.id.list);
 
-        FragmentManager fragmentActivity = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentActivity.beginTransaction();
+        //Настройка tablayoutbar
 
-        // добавляем фрагмент
-        F_start ff1 = new F_start();
-        fragmentTransaction.add(R.id.list, ff1);
-        fragmentTransaction.commit();
-
-        requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-        t1 = findViewById(R.id.textView29);
-        Typeface r1 = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
-        t1.setTypeface(r1);
-
-        //  @SuppressLint("MissingInflatedId")
-        drawerLayout = findViewById(R.id.drawerLayout);
-        Toolbar toolbar = findViewById(R.id.toolbars);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        NavigationView navigationView = findViewById(R.id.navigationView);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open_nav, R.string.close_nav);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        frameLayout = findViewById(R.id.frame);
-        f_start = new F_start();
-        f_connect = new F_connect();
-        //f_enter_regim = new F_enter_regim();
-        //f_electromagn = new F_electromagn();
-        //f_tepl = new F_tepl();
-        //f_energo = new F_energo();
-        f_config = new F_config();
-        f_about = new F_about();
+        tabLayout = findViewById(R.id.tabLayouts);
+        tabLayout.addTab(tabLayout.newTab().setText("T_1").setIcon(R.drawable.ic_baseline_trending_down));
+        tabLayout.addTab(tabLayout.newTab().setText("T_2").setIcon(R.drawable.ic_baseline_waves));
+        tabLayout.addTab(tabLayout.newTab().setText("T_3").setIcon(R.drawable.ic_baseline_stream));
+        tabLayout.addTab(tabLayout.newTab().setText("T_4").setIcon(R.drawable.ic_baseline_star));
+        tabLayout.addOnTabSelectedListener(this);
+        tabLayout.setVisibility(View.GONE);
 
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-
-                switch (position) {
-                    case 0:
-                        ((TextView) findViewById(R.id.textView29)).setText("Выбор режима");
-                        break;
-                    case 1:
-                        ((TextView) findViewById(R.id.textView29)).setText("Электромагн. процессы");
-                        break;
-                    case 2:
-                        ((TextView) findViewById(R.id.textView29)).setText("Тепловые режимы");
-                        break;
-                    case 3:
-                        ((TextView) findViewById(R.id.textView29)).setText("Вентиляц. режимы");
-                        break;
-                    case 4:
-                        ((TextView) findViewById(R.id.textView29)).setText("Энергетика");
-                        break;
-                }
-
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
             }
         });
-  /*      if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_start()).commit();
-            navigationView.setCheckedItem(R.id.f_start);
-        }
-*/
+
+        //настройка прав доступа  и глобальных настроек приложения
+        requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.f_start:
-                linearLayout.setVisibility(View.VISIBLE);
-                viewPager2.setVisibility(View.GONE);
-
-              /*  frag.replace(R.id.frame,f_start);
-                frag.addToBackStack(null);
-                frag.commit();*/
-                getSupportFragmentManager().beginTransaction().replace(R.id.list, f_start).commit();
-                linearLayout.setVisibility(View.VISIBLE);
-                viewPager2.setVisibility(View.GONE);
-                break;
-            case R.id.f_connect:
-                getSupportFragmentManager().beginTransaction().replace(R.id.list, f_connect).commit();
-                break;
-            case R.id.f_enter_regim:
-                resieve();
-                viewPager2.setCurrentItem(0);
-                ((TextView) findViewById(R.id.textView29)).setText("Выбор режима");
-                //getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_enter_regim()).commit();
-                break;
-            case R.id.f_electromagn:
-                resieve();
-                viewPager2.setCurrentItem(1);
-                ((TextView) findViewById(R.id.textView29)).setText("Электромагн. процессы");
-               // getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_electromagn()).commit();
-                break;
-            case R.id.f_tepl:
-                resieve();
-                viewPager2.setCurrentItem(2);
-                ((TextView) findViewById(R.id.textView29)).setText("Тепловые режимы");
-               // getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_tepl()).commit();
-                break;
-            case R.id.f_vent:
-                resieve();
-                viewPager2.setCurrentItem(3);
-                ((TextView) findViewById(R.id.textView29)).setText("Вентиляц. режимы");
-               // getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_vent()).commit();
-                break;
-            case R.id.f_energo:
-                resieve();
-                viewPager2.setCurrentItem(4);
-                ((TextView) findViewById(R.id.textView29)).setText("Энергетика");
-                //getSupportFragmentManager().beginTransaction().replace(R.id.frame, new F_energo()).commit();
-                break;
-            case R.id.f_config:
-                ((TextView) findViewById(R.id.textView29)).setText("Настройки");
-                getSupportFragmentManager().beginTransaction().replace(R.id.list, f_config).commit();
-                break;
-            case R.id.f_about:
-                ((TextView) findViewById(R.id.textView29)).setText("О программе");
-                getSupportFragmentManager().beginTransaction().replace(R.id.list, f_about).commit();
-                break;
-        }
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
+    public void onTabSelected(TabLayout.Tab tab) {
+        viewPager2.setCurrentItem(tab.getPosition());
     }
 
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
 
- /*   @Override
-
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            MainActivity.super.onBackPressed();
-        }
     }
-*/
-   public class ScreenSlidePageAdapter extends FragmentStateAdapter {
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
+    }
+
+    public class ScreenSlidePageAdapter extends FragmentStateAdapter {
         public ScreenSlidePageAdapter(MainActivity mainActivity) {
             super(mainActivity);
         }
@@ -219,15 +174,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         public Fragment createFragment(int position) {
             switch (position) {
                 case 0:
-                    return new F_enter_regim();
-                case 1:
                     return new F_electromagn();
-                case 2:
+                case 1:
                     return new F_tepl();
-                case 3:
-                    //((TextView) MainActivity.this.findViewById(R.id.textView29)).setText("Вентиляц. режимы");
+                case 2:
                     return new F_vent();
-                case 4:
+                case 3:
+
                     return new F_energo();
                 default:
                     return null;
@@ -241,39 +194,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @Override
-    public void onBackPressed()
-    {
-        // super.onBackPressed();
-        openQuitDialog();
-    }
-
-    private void openQuitDialog() {
-        AlertDialog.Builder quitDialog = new AlertDialog.Builder(
-                MainActivity.this);
-        quitDialog.setTitle("Выход: Вы уверены?");
-
-        quitDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-
-        quitDialog.setNegativeButton("Нет", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // TODO Auto-generated method stub
-            }
-        });
-
-        quitDialog.show();
-    }
-
     void resieve()
     {
         linearLayout.setVisibility(View.GONE);
         viewPager2.setVisibility(View.VISIBLE);
+    }
+
+    public void onFragment1NextClick() {
+        navController.navigate(R.id.action_f_start_to_f_connect);
+    }
+
+    public void onFragment2BackClick() {
+        //this.findNavController().popBackStack();
+        navController.navigate(R.id.action_f_connect_to_f_start);
+    }
+
+    public void onFragment2NextClick() {
+
+        navController.navigate(R.id.action_f_connect_to_f_electromagn);
+        viewPager2.setVisibility(View.VISIBLE);
+        tabLayout.setVisibility(View.VISIBLE);
+
     }
 }
 

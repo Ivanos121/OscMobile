@@ -19,13 +19,15 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="15dp"
             android:gravity="center_horizontal"
+
             android:text="@string/find"
             android:textAlignment="center"
-            android:textColor="@color/black"
             android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView26"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/button8" />
 
@@ -56,7 +58,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Адрес устройства"
-                    android:textColor="@color/black" />
+                     />
             </TableRow>
 
             <TableRow
@@ -70,40 +72,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Поиск_настройка_сети"
-            android:textColor="@color/black"
+
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="411dp"
-            android:layout_height="60dp"
-            android:backgroundTint="#33cc33"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="Подключение"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#33cc33"
-            android:insetTop="0dp"
-            android:insetBottom="0dp"
-            android:text="Поиск"
-            app:layout_constraintBottom_toTopOf="@+id/button7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tableLayout3"
-            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView26"
@@ -114,13 +88,33 @@
             android:layout_marginEnd="16dp"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="@color/black"
+
             android:textSize="25sp"
-            app:layout_constraintBottom_toTopOf="@+id/button7"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView25"
-            app:layout_constraintVertical_bias="0.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Подключение"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Поиск"
+            app:layout_constraintBottom_toTopOf="@+id/textView25"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -36,7 +36,7 @@ public class F_start extends Fragment {
                 "тепловентиляционных испытаний асинхронных электродвигателей\n";
         tvPage.setText(data);
 
-        ((TextView)getActivity().findViewById(R.id.textView29)).setText("Начало работы");
+       // ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Начало работы");
 
 
         Button b1 = (Button) view.findViewById(R.id.btn_fragment_1);
@@ -44,33 +44,9 @@ public class F_start extends Fragment {
             @Override
             public void onClick(View v)
             {
-                F_connect fconnect = new F_connect();
-                FragmentTransaction ft1 = getParentFragmentManager().beginTransaction();
-                ft1.replace(R.id.list, fconnect);
-                ft1.commit();
-
-
+                ((MainActivity) requireActivity()).onFragment1NextClick();
             }
         });
         return view;
     }
-    /*@Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        getView().setFocusableInTouchMode(true);
-        getView().requestFocus();
-        getView().setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (event.getAction() == KeyEvent.ACTION_DOWN) {
-                    if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        getActivity().finish();
-
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-    }*/
 }

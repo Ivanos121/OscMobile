@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/f_start">
+
+    <fragment
+        android:id="@+id/f_start"
+        android:name="com.example.myapplication.F_start"
+        android:label="fragment_f_start"
+        tools:layout="@layout/fragment_f_start" >
+        <action
+            android:id="@+id/action_f_start_to_f_connect"
+            app:destination="@id/f_connect" />
+    </fragment>
+    <fragment
+        android:id="@+id/f_connect"
+        android:name="com.example.myapplication.F_connect"
+        android:label="fragment_f_connect"
+        tools:layout="@layout/fragment_f_connect" >
+        <action
+            android:id="@+id/action_f_connect_to_f_start"
+            app:destination="@id/f_start" />
+        <action
+            android:id="@+id/action_f_connect_to_f_electromagn"
+            app:destination="@id/f_electromagn" />
+    </fragment>
+    <fragment
+        android:id="@+id/f_electromagn"
+        android:name="com.example.myapplication.F_electromagn"
+        android:label="F_electromagn" />
+    <fragment
+        android:id="@+id/f_tepl"
+        android:name="com.example.myapplication.F_tepl"
+        android:label="fragment_f_tepl"
+        tools:layout="@layout/fragment_f_tepl" />
+
+    <fragment
+        android:id="@+id/f_vent"
+        android:name="com.example.myapplication.F_vent"
+        android:label="fragment_f_vent"
+        tools:layout="@layout/fragment_f_vent" />
+    <fragment
+        android:id="@+id/f_energo"
+        android:name="com.example.myapplication.F_energo"
+        android:label="fragment_f_energo"
+        tools:layout="@layout/fragment_f_energo" />
+    <fragment
+        android:id="@+id/f_config2"
+        android:name="com.example.myapplication.F_config"
+        android:label="fragment_f_config"
+        tools:layout="@layout/fragment_f_config" />
+    <fragment
+        android:id="@+id/f_about2"
+        android:name="com.example.myapplication.F_about"
+        android:label="fragment_f_about"
+        tools:layout="@layout/fragment_f_about" />
+
+</navigation>

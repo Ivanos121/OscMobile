@@ -6,7 +6,6 @@
     android:id="@+id/drawerLayout3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bkg3"
     android:divider="?android:dividerHorizontal"
     android:showDividers="middle"
     tools:context=".MainActivity3">
