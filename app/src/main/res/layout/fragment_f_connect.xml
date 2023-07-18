@@ -5,6 +5,10 @@
     android:id="@+id/drawerLayout10"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="16dp"
     tools:context=".F_connect">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -57,8 +61,7 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Адрес устройства"
-                     />
+                    android:text="Адрес устройства" />
             </TableRow>
 
             <TableRow

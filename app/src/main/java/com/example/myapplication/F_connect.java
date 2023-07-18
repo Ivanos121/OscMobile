@@ -69,7 +69,6 @@ public class F_connect extends Fragment {
             public void onClick(View v)
             {
                 ((MainActivity) requireActivity()).onFragment2NextClick();
-
             }
         });
 
