@@ -47,12 +47,12 @@
         android:label="fragment_f_energo"
         tools:layout="@layout/fragment_f_energo" />
     <fragment
-        android:id="@+id/f_config2"
+        android:id="@+id/f_config"
         android:name="com.example.myapplication.F_config"
         android:label="fragment_f_config"
         tools:layout="@layout/fragment_f_config" />
     <fragment
-        android:id="@+id/f_about2"
+        android:id="@+id/f_about"
         android:name="com.example.myapplication.F_about"
         android:label="fragment_f_about"
         tools:layout="@layout/fragment_f_about" />

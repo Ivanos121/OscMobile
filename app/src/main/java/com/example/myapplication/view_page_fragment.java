@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,7 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
         tabLayout.addTab(tabLayout.newTab().setText("T_3").setIcon(R.drawable.ic_baseline_stream));
         tabLayout.addTab(tabLayout.newTab().setText("T_4").setIcon(R.drawable.ic_baseline_star));
         tabLayout.addOnTabSelectedListener((TabLayout.OnTabSelectedListener) this);
+
        // tabLayout.setVisibility(View.GONE);
 
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
@@ -56,17 +58,21 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
 
     @Override
     public void onTabSelected(TabLayout.Tab tab) {
+
         viewPager2.setCurrentItem(tab.getPosition());
+        tab.getIcon().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
+
     }
 
     @Override
     public void onTabUnselected(TabLayout.Tab tab) {
-
+        tab.getIcon().setColorFilter(Color.parseColor("#a8a8a8"), PorterDuff.Mode.SRC_IN);
     }
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
         tabLayout.setTabTextColors(Color.parseColor("#000000"),Color.parseColor("#FFFFFF"));
+        tab.getIcon().setColorFilter(Color.parseColor("#a8a8a8"), PorterDuff.Mode.SRC_IN);
 
     }
 
