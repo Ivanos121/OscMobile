@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int NUM_PAGES = 4;
 
     private LinearLayout linearLayout;
+    private Menu menu;
 
     private FragmentStateAdapter pagerAdapter;
     private FragmentTransaction frag;
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
             r.show();
         }
     };
+
+    public MainActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -126,6 +131,13 @@ public class MainActivity extends AppCompatActivity {
         viewPager2.setAdapter(pagerAdapter);
         linearLayout = findViewById(R.id.list);
 
+        Menu menu = navigationView.getMenu();
+        menu.findItem(R.id.f_electromagn).setVisible(false);
+        menu.findItem(R.id.f_tepl).setVisible(false);
+        menu.findItem(R.id.f_vent).setVisible(false);
+        menu.findItem(R.id.f_energo).setVisible(false);
+
+
         //Настройка tablayoutbar
 
 
@@ -146,7 +158,10 @@ public class MainActivity extends AppCompatActivity {
     public void onFragment2NextClick() {
 
         navController.navigate(R.id.action_f_connect_to_view_page_fragment);
-       // tabLayout.setVisibility(View.VISIBLE);
+       // menu.findItem(R.id.f_electromagn).setVisible(true);
+       // menu.findItem(R.id.f_tepl).setVisible(true);
+       // menu.findItem(R.id.f_vent).setVisible(true);
+       // menu.findItem(R.id.f_energo).setVisible(true);
 
     }
 }

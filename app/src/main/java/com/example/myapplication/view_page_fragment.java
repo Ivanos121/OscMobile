@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -65,6 +66,7 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
+        tabLayout.setTabTextColors(Color.parseColor("#000000"),Color.parseColor("#FFFFFF"));
 
     }
 

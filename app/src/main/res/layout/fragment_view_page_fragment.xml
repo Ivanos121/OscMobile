@@ -24,12 +24,16 @@
                 android:id="@+id/tabLayouts"
                 android:background="@color/colorPrimary"
                 app:tabTextColor="@color/colorWhite"
-                app:tabIndicatorColor="@color/colorWhite"/>
+                app:tabIndicatorColor="@color/colorAccent"/>
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp">
 
             </androidx.viewpager2.widget.ViewPager2>
 

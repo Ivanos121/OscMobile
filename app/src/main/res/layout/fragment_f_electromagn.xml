@@ -9,10 +9,6 @@
     android:layout_marginBottom="16dp"
     android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
         <LinearLayout
             android:id="@+id/linearLayoutQuestion"
             android:layout_width="match_parent"
@@ -22,28 +18,47 @@
             <TableLayout
                 android:id="@+id/tableLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/colorBlack"
+                android:shrinkColumns="0"
+                android:stretchColumns="1">
 
                 <TableRow>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="Величина"
+
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="Значение"
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="Размерность"
                         android:textAlignment="center" />
                 </TableRow>
@@ -53,21 +68,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Ток фазы А:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Ток фазы А" />
 
                     <TextView
                         android:id="@+id/tokA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="A"
                         android:textAlignment="center" />
                 </TableRow>
@@ -77,21 +107,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Напряжение фазы А:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Напряжение фазы А" />
 
                     <TextView
                         android:id="@+id/naprA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="В"
                         android:textAlignment="center" />
                 </TableRow>
@@ -101,21 +146,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Активная мощность фазы А:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Активн мощность фазы А" />
 
                     <TextView
                         android:id="@+id/activA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="Вт"
                         android:textAlignment="center" />
                 </TableRow>
@@ -125,21 +185,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Реактивная мощность фазы А:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Реакт мощность фазы А" />
 
                     <TextView
                         android:id="@+id/reactivA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="ВА"
                         android:textAlignment="center" />
                 </TableRow>
@@ -149,21 +224,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Полная мощность фазы А:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Полная мощность фазы А" />
 
                     <TextView
                         android:id="@+id/polnA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="ВАР"
                         android:textAlignment="center" />
                 </TableRow>
@@ -173,21 +263,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Клэффициент мощности:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Коэф-т мощности фазы А" />
 
                     <TextView
                         android:id="@+id/koeffA"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="---"
                         android:textAlignment="center" />
                 </TableRow>
@@ -197,21 +302,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Ток фазы В:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Ток фазы В" />
 
                     <TextView
                         android:id="@+id/tokB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="A"
                         android:textAlignment="center" />
                 </TableRow>
@@ -221,21 +341,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Напряжение фазы В:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Напряжение фазы В" />
 
                     <TextView
                         android:id="@+id/naprB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="В"
                         android:textAlignment="center" />
                 </TableRow>
@@ -245,21 +380,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Активная мощность фазы В:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Активн мощность фазы В" />
 
                     <TextView
                         android:id="@+id/activB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="Вт"
                         android:textAlignment="center" />
                 </TableRow>
@@ -269,45 +419,77 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Реактивная мощность фазы В:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Реакт мощность фазы В" />
 
                     <TextView
                         android:id="@+id/reactiveB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="ВА"
                         android:textAlignment="center" />
                 </TableRow>
 
-                <TableRow>
+                <TableRow
+                    android:divider="@color/colorPrimary"
+                    android:showDividers="middle">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Полная мощность фазы В:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Полная мощность фазы В" />
 
                     <TextView
                         android:id="@+id/polnB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="ВАР"
                         android:textAlignment="center" />
                 </TableRow>
@@ -317,21 +499,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Клэффициент мощности:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Коэф-т мощности фазы В" />
 
                     <TextView
                         android:id="@+id/koeffB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="---"
                         android:textAlignment="center" />
                 </TableRow>
@@ -341,21 +538,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Ток фазы С:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Ток фазы С" />
 
                     <TextView
                         android:id="@+id/tokC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="A"
                         android:textAlignment="center" />
                 </TableRow>
@@ -365,45 +577,77 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Напряжение фазы В, С:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Напряжение фазы В, С" />
 
                     <TextView
                         android:id="@+id/naprC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="В"
                         android:textAlignment="center" />
                 </TableRow>
 
-                <TableRow>
+                <TableRow
+                    android:divider="@color/colorPrimary"
+                    android:showDividers="middle">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Активная мощность фазы С:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Активн мощность фазы С" />
 
                     <TextView
                         android:id="@+id/activeC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="Вт"
                         android:textAlignment="center" />
                 </TableRow>
@@ -413,21 +657,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Реактивная мощность фазы С:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Реакт мощность фазы С" />
 
                     <TextView
                         android:id="@+id/reaktivC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="ВА"
                         android:textAlignment="center" />
                 </TableRow>
@@ -437,21 +696,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Полная мощность фазы С:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Полная мощность фазы С" />
 
                     <TextView
                         android:id="@+id/polnC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="ВАР"
                         android:textAlignment="center" />
                 </TableRow>
@@ -461,21 +735,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Клэффициент мощности:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Коэф-т мощности фазы С" />
 
                     <TextView
                         android:id="@+id/koeffC"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="---"
                         android:textAlignment="center" />
                 </TableRow>
@@ -485,21 +774,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Трехфазная активная мощность:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="3-хфазная акт мощность" />
 
                     <TextView
                         android:id="@+id/activ_summ"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="Вт"
                         android:textAlignment="center" />
                 </TableRow>
@@ -509,21 +813,35 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Трехфазная реактивная мощность:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="3-фазная реакт. мощность" />
 
                     <TextView
                         android:id="@+id/reactiv_summ"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text=""
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="ВА"
                         android:textAlignment="center" />
                 </TableRow>
@@ -533,21 +851,36 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Трехфазная полная мощность:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="3-фазная полн. мощность" />
 
                     <TextView
                         android:id="@+id/poln_summ"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
                         android:text="ВАР"
                         android:textAlignment="center" />
                 </TableRow>
@@ -557,21 +890,38 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Коэффициент мощности:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Коэффициент мощности" />
 
                     <TextView
                         android:id="@+id/koeff_summ"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
                         android:text=""
                         android:textAlignment="center" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
                         android:text="---"
                         android:textAlignment="center" />
                 </TableRow>
@@ -581,21 +931,37 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Скорость:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Скорость" />
 
                     <TextView
                         android:id="@+id/omega"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text=""
-                        android:textAlignment="center" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
                         android:text="рад/с"
                         android:textAlignment="center" />
                 </TableRow>
@@ -605,28 +971,39 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Момент:" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:text="Момент" />
 
                     <TextView
                         android:id="@+id/moment"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text=""
-                        android:textAlignment="center" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="0.5"
-                        android:text="Н*м"
-                        android:textAlignment="center" />
+                        android:layout_marginBottom="1dp"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="1dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="Н*м" />
                 </TableRow>
             </TableLayout>
-
         </LinearLayout>
-
-    </ScrollView>
-
 </RelativeLayout>
