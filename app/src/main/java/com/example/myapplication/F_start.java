@@ -1,12 +1,9 @@
 package com.example.myapplication;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,9 +32,6 @@ public class F_start extends Fragment {
                 " в связке с аппаратным обеспечением при проведении\n" +
                 "тепловентиляционных испытаний асинхронных электродвигателей\n";
         tvPage.setText(data);
-
-       // ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Начало работы");
-
 
         Button b1 = (Button) view.findViewById(R.id.btn_fragment_1);
         b1.setOnClickListener(new View.OnClickListener() {

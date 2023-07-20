@@ -1,10 +1,14 @@
 package com.example.myapplication;
 
+import android.graphics.BlendMode;
+import android.graphics.BlendModeColorFilter;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
@@ -60,13 +64,16 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
     public void onTabSelected(TabLayout.Tab tab) {
 
         viewPager2.setCurrentItem(tab.getPosition());
-        tab.getIcon().setColorFilter(Color.GREEN, PorterDuff.Mode.SRC_IN);
+        //tab.getIcon().setColorFilter(new BlendModeColorFilter(ContextCompat.getColor(Icon, R.color.colorGreen), BlendMode.SRC_IN));
+        tab.getIcon().setColorFilter(Color.parseColor("#32CD32"), PorterDuff.Mode.SRC_IN);
+
 
     }
 
     @Override
     public void onTabUnselected(TabLayout.Tab tab) {
         tab.getIcon().setColorFilter(Color.parseColor("#a8a8a8"), PorterDuff.Mode.SRC_IN);
+
     }
 
     @Override
@@ -77,7 +84,7 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
     }
 
 
-    public class ScreenSlidePageAdapter extends FragmentStateAdapter {
+    public static class ScreenSlidePageAdapter extends FragmentStateAdapter {
         public ScreenSlidePageAdapter(view_page_fragment view_page_fragment) {
             super(view_page_fragment);
         }

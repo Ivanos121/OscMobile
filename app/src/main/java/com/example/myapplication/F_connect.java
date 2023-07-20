@@ -3,20 +3,14 @@ package com.example.myapplication;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,7 +23,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-import java.util.Objects;
 
 public class F_connect extends Fragment {
 
@@ -56,7 +49,7 @@ public class F_connect extends Fragment {
         TextView ipAddressEdit = (TextView) view.findViewById(R.id.editTextNumberDecimal);
         ipAddressEdit.setText(mSettings.getString(APP_PREFERENCES_IP, "192.168.100.10"));
 
-        ((TextView)getActivity().findViewById(R.id.textTitle)).setText("Настройка подключения");
+        ((TextView)getActivity().findViewById(R.id.text1)).setText("Настройка подключения");
 
         TextView t1 = (TextView) view.findViewById(R.id.textView26);
         t1.setVisibility(View.GONE);
@@ -152,53 +145,6 @@ public class F_connect extends Fragment {
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
         return view;
     }
-
-    /*
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-
-        mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-
-        getActivity().setContentView(R.layout.activity_main2);
-
-        DrawerLayout drawerLayout10 = requireView().findViewById(R.id.drawerLayout10);
-
-        requireView().findViewById(R.id.imageView2).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {drawerLayout10.openDrawer(GravityCompat.START);
-            }
-        });
-
-        //Переопределение шрифта
-        t1=(TextView) getView().findViewById(R.id.textTitle2);
-        Typeface r1=Typeface.createFromAsset(getContext().getAssets(),"fonts/Roboto-Bold.ttf");
-        t1.setTypeface(r1);
-
-        bb1=getView().findViewById(R.id.button2);
-        Typeface b=Typeface.createFromAsset(getContext().getAssets(),"fonts/Roboto-Black.ttf");
-        bb1.setTypeface(b);
-
-        DrawerLayout drawerLayout = getView().findViewById(R.id.drawerLayout2);
-
-        getView().findViewById(R.id.imageView).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerLayout10.openDrawer(GravityCompat.START);
-            }
-        });
-
-        EditText editTextNumberDecimal = (EditText) getView().findViewById(R.id.editTextNumberDecimal);
-        editTextNumberDecimal.setText(mSettings.getString(APP_PREFERENCES_IP, "192.168.100.10"));
-    }
-
-    public void openWiFiSettings(View v)
-    {
-        Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
-        startActivity(intent);
-    }*/
 
     OnBackPressedCallback callback = new OnBackPressedCallback(true)
     {

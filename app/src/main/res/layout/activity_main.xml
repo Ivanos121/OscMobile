@@ -56,30 +56,6 @@
             app:layout_constraintTop_toBottomOf="@id/layoutToolBar"
             app:navGraph="@navigation/main"></fragment>
 
-        <LinearLayout
-            android:id="@+id/list"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutToolBar">
-
-            <com.google.android.material.tabs.TabLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/tabLayouts"
-                android:background="@color/colorPrimary"
-                app:tabTextColor="@color/colorWhite"
-                app:tabIndicatorColor="@color/colorWhite"/>
-
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/pager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

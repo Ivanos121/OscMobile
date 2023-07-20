@@ -4,21 +4,498 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="16dp"
+    android:orientation="vertical"
     tools:context=".F_tepl">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/linearLayoutQuestion"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView19"
-            android:layout_width="wrap_content"
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="tepl"
-            tools:layout_editor_absoluteX="135dp"
-            tools:layout_editor_absoluteY="340dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:background="@color/colorBlack"
+            android:shrinkColumns="0"
+            android:stretchColumns="1">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Величина"
+
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Значение"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Размерность"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Станина" />
+
+                <TextView
+                    android:id="@+id/stanina"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Подшипн узел справа сзади" />
+
+                <TextView
+                    android:id="@+id/pucz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Лобовая часть слева спереди" />
+
+                <TextView
+                    android:id="@+id/lchcc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Подшипн узел слева спереди" />
+
+                <TextView
+                    android:id="@+id/pucc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Лобовая часть слева сзади" />
+
+                <TextView
+                    android:id="@+id/lchcz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Станина" />
+
+                <TextView
+                    android:id="@+id/stan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Лобов часть справа спереди" />
+
+                <TextView
+                    android:id="@+id/Lchcc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Лобов часть справа сзади" />
+
+                <TextView
+                    android:id="@+id/lchcpz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Магнитопровод статора" />
+
+                <TextView
+                    android:id="@+id/mc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Подшип узел справа спереди" />
+
+                <TextView
+                    android:id="@+id/pucspr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Подшип узел слева сзади" />
+
+                <TextView
+                    android:id="@+id/puczz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="°С"
+                    android:textAlignment="center" />
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -1,18 +1,14 @@
 package com.example.myapplication;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,10 +16,7 @@ import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -39,6 +32,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
         //implements TabLayout.OnTabSelectedListener {
@@ -97,8 +92,6 @@ public class MainActivity extends AppCompatActivity {
         //связь функции callbak и диалогового окна закрытия приложения
         getOnBackPressedDispatcher().addCallback(this, onBackPressedCallback);
 
-        TabLayout tabs = findViewById(R.id.tabLayouts);
-        tabs.setVisibility(View.GONE);
         //формирование меню
         drawerLayout = findViewById(R.id.drawerLayout);
         DrawerLayout drawerLayout = findViewById(R.id.drawerLayout);
@@ -114,7 +107,43 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setItemIconTintList(null);
 
         navController = Navigation.findNavController(this, R.id.navHostFragment);
+       // NavigationUI.setupWithNavController(navigationView, navController);
+
         NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+            {
+                int id = menuItem.getItemId();
+                if (id == R.id.f_start) {
+                    navController.navigate(R.id.f_start);
+                }
+                if (id == R.id.f_connect) {
+                    navController.navigate(R.id.f_connect);
+                }
+                if (id == R.id.f_electromagn) {
+                      //  navController.navigate(R.id.navigation);
+                }
+                if (id == R.id.f_tepl) {
+                  //  viewPager2.setCurrentItem(2,true);
+                }
+                if (id == R.id.f_vent) {
+                  //  viewPager2.setCurrentItem(2,true);
+                }
+                if (id == R.id.f_energo) {
+                  //  viewPager2.setCurrentItem(2,true);
+                }
+                if (id == R.id.f_config) {
+                    navController.navigate(R.id.f_config);
+                }
+                if (id == R.id.f_about) {
+                    navController.navigate(R.id.f_about);
+                }
+                drawerLayout.closeDrawer(GravityCompat.START);
+                return false;
+            }
+
+        });
 
         TextView textTitle = findViewById(R.id.textTitle);
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
@@ -123,19 +152,13 @@ public class MainActivity extends AppCompatActivity {
                 textTitle.setText(navDestination.getLabel());
             }
         });
-
-        //Объявление Viewpager2
-        viewPager2 = findViewById(R.id.pager);
-        viewPager2.setVisibility(View.GONE);
-        //  pagerAdapter = new ScreenSlidePageAdapter(this);
-        viewPager2.setAdapter(pagerAdapter);
-        linearLayout = findViewById(R.id.list);
+        ((TextView) findViewById(R.id.textTitle)).setText("Начало работы");
 
         Menu menu = navigationView.getMenu();
-        menu.findItem(R.id.f_electromagn).setVisible(false);
-        menu.findItem(R.id.f_tepl).setVisible(false);
-        menu.findItem(R.id.f_vent).setVisible(false);
-        menu.findItem(R.id.f_energo).setVisible(false);
+      //  menu.findItem(R.id.f_electromagn).setVisible(false);
+      //  menu.findItem(R.id.f_tepl).setVisible(false);
+      //  menu.findItem(R.id.f_vent).setVisible(false);
+      //  menu.findItem(R.id.f_energo).setVisible(false);
 
 
         //Настройка tablayoutbar
@@ -147,7 +170,9 @@ public class MainActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
     }
     public void onFragment1NextClick() {
+
         navController.navigate(R.id.action_f_start_to_f_connect);
+        ((TextView) findViewById(R.id.textTitle)).setText("Подключение");
     }
 
     public void onFragment2BackClick() {
@@ -158,11 +183,20 @@ public class MainActivity extends AppCompatActivity {
     public void onFragment2NextClick() {
 
         navController.navigate(R.id.action_f_connect_to_view_page_fragment);
-       // menu.findItem(R.id.f_electromagn).setVisible(true);
+        //Navigation.findNavController(this,R.id.navHostFragment).navigate(R.id.action_global_f_electromagn);
+
+        // menu.findItem(R.id.f_electromagn).setVisible(true);
        // menu.findItem(R.id.f_tepl).setVisible(true);
        // menu.findItem(R.id.f_vent).setVisible(true);
        // menu.findItem(R.id.f_energo).setVisible(true);
 
+    }
+
+    public void onFragment8BackClick() {
+        navController.navigate(R.id.action_f_config_to_f_start);
+    }
+    public void onFragment9BackClick() {
+        navController.navigate(R.id.action_f_about_to_f_start);
     }
 }
 

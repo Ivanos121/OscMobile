@@ -16,9 +16,42 @@
             android:id="@+id/textView28"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="about"
-            tools:layout_editor_absoluteX="193dp"
-            tools:layout_editor_absoluteY="325dp" />
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="450dp"
+            android:text="IM View Mobile"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginRight="100dp"
+            android:src="@drawable/about"
+            app:layout_constraintBottom_toTopOf="@+id/textView28"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="500dp"
+            android:layout_marginLeft="100dp"
+            android:text="v 0.3"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

@@ -27,10 +27,6 @@
             app:destination="@id/view_page_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/f_electromagn"
-        android:name="com.example.myapplication.F_electromagn"
-        android:label="F_electromagn" />
-    <fragment
         android:id="@+id/f_tepl"
         android:name="com.example.myapplication.F_tepl"
         android:label="fragment_f_tepl"
@@ -50,16 +46,33 @@
         android:id="@+id/f_config"
         android:name="com.example.myapplication.F_config"
         android:label="fragment_f_config"
-        tools:layout="@layout/fragment_f_config" />
+        tools:layout="@layout/fragment_f_config" >
+        <action
+            android:id="@+id/action_f_config_to_f_start"
+            app:destination="@id/f_start" />
+    </fragment>
     <fragment
         android:id="@+id/f_about"
         android:name="com.example.myapplication.F_about"
         android:label="fragment_f_about"
-        tools:layout="@layout/fragment_f_about" />
+        tools:layout="@layout/fragment_f_about" >
+        <action
+            android:id="@+id/action_f_about_to_f_start"
+            app:destination="@id/f_start" />
+    </fragment>
     <fragment
         android:id="@+id/view_page_fragment"
         android:name="com.example.myapplication.view_page_fragment"
         android:label="fragment_view_page_fragment"
         tools:layout="@layout/fragment_view_page_fragment" />
+    <action android:id="@+id/action_global_f_electromagn"
+            app:destination="@id/navigation" />
+    <navigation android:id="@+id/navigation"
+        app:startDestination="@id/f_electromagn">
+        <fragment
+            android:id="@+id/f_electromagn"
+            android:name="com.example.myapplication.F_electromagn"
+            android:label="F_electromagn" />
+    </navigation>
 
 </navigation>
