@@ -23,6 +23,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
+import java.util.Objects;
 
 public class F_connect extends Fragment {
 
@@ -41,7 +42,7 @@ public class F_connect extends Fragment {
         // Inflate the layout for this fragment
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
-        mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        mSettings = requireActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 
         View view = inflater.inflate(R.layout.fragment_f_connect, container, false);
         Button b1 = (Button) view.findViewById(R.id.button8);
@@ -49,7 +50,7 @@ public class F_connect extends Fragment {
         TextView ipAddressEdit = (TextView) view.findViewById(R.id.editTextNumberDecimal);
         ipAddressEdit.setText(mSettings.getString(APP_PREFERENCES_IP, "192.168.100.10"));
 
-        ((TextView)getActivity().findViewById(R.id.text1)).setText("Настройка подключения");
+        ((TextView) requireActivity().findViewById(R.id.text1)).setText("Настройка подключения");
 
         TextView t1 = (TextView) view.findViewById(R.id.textView26);
         t1.setVisibility(View.GONE);
@@ -99,7 +100,7 @@ public class F_connect extends Fragment {
                             JSONObject obj = new JSONObject(JSONDeviceData);
                             String name= obj.getString("device_name");
 
-                            getActivity().runOnUiThread(new Runnable() {
+                            requireActivity().runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
                                     t1.setVisibility(View.VISIBLE);

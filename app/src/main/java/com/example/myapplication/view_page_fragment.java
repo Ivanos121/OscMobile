@@ -1,15 +1,15 @@
 package com.example.myapplication;
 
+import android.annotation.SuppressLint;
 import android.graphics.BlendMode;
 import android.graphics.BlendModeColorFilter;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.drawable.Icon;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -20,6 +20,8 @@ import android.widget.LinearLayout;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Objects;
+
 public class view_page_fragment extends Fragment implements TabLayout.OnTabSelectedListener {
 
     private ViewPager2 viewPager2;
@@ -27,6 +29,7 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
     private FragmentStateAdapter pagerAdapter;
     LinearLayout linearLayout;
     private TabLayout tabLayout;
+    private final int numItems = 4;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,6 +60,9 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
             }
         });
 
+
+
+
         return view;
     }
 
@@ -64,22 +70,27 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
     public void onTabSelected(TabLayout.Tab tab) {
 
         viewPager2.setCurrentItem(tab.getPosition());
-        //tab.getIcon().setColorFilter(new BlendModeColorFilter(ContextCompat.getColor(Icon, R.color.colorGreen), BlendMode.SRC_IN));
-        tab.getIcon().setColorFilter(Color.parseColor("#32CD32"), PorterDuff.Mode.SRC_IN);
+        Objects.requireNonNull(tab.getIcon()).setColorFilter(new BlendModeColorFilter(ResourcesCompat.getColor(getResources(),R.color.colorGreen,null), BlendMode.SRC_IN));
+        // tab.getIcon().setColorFilter(Color.parseColor("#32CD32"), PorterDuff.Mode.SRC_IN);
+
 
 
     }
 
     @Override
     public void onTabUnselected(TabLayout.Tab tab) {
-        tab.getIcon().setColorFilter(Color.parseColor("#a8a8a8"), PorterDuff.Mode.SRC_IN);
+       // Objects.requireNonNull(tab.getIcon()).setColorFilter(Color.parseColor("#000000"), PorterDuff.Mode.SRC_IN);
+        Objects.requireNonNull(tab.getIcon()).setColorFilter(new BlendModeColorFilter(ResourcesCompat.getColor(getResources(),R.color.colorBlack,null), BlendMode.SRC_IN));
+
 
     }
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
         tabLayout.setTabTextColors(Color.parseColor("#000000"),Color.parseColor("#FFFFFF"));
-        tab.getIcon().setColorFilter(Color.parseColor("#a8a8a8"), PorterDuff.Mode.SRC_IN);
+        //tab.getIcon().setColorFilter(Color.parseColor("#a8a8a8"), PorterDuff.Mode.SRC_IN);
+        Objects.requireNonNull(tab.getIcon()).setColorFilter(new BlendModeColorFilter(ResourcesCompat.getColor(getResources(),R.color.colorGreen,null), BlendMode.SRC_IN));
+
 
     }
 

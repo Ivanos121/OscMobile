@@ -1,9 +1,13 @@
 package com.example.myapplication;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -111,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
         NavigationUI.setupWithNavController(navigationView, navController);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
             {
@@ -123,6 +128,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (id == R.id.f_electromagn) {
                       //  navController.navigate(R.id.navigation);
+                 //   Log.i(TAG, "getCurrentItem " + viewPager2.getCurrentItem());
+                //    (HomeListFragment) getSupportFragmentManager().findFragmentByTag(
+                  //          "android:switcher:"+R.id.viewPager2+":0");
+
+
                 }
                 if (id == R.id.f_tepl) {
                   //  viewPager2.setCurrentItem(2,true);
