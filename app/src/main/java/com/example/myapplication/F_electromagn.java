@@ -50,6 +50,7 @@ public class F_electromagn extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_f_electromagn, container, false);
 
+        ((TextView) requireActivity().findViewById(R.id.textTitle)).setText("Подключение");
 
         mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         ip_address = mSettings.getString(APP_PREFERENCES_IP, "");

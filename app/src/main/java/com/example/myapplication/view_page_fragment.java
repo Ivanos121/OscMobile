@@ -17,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -72,6 +73,24 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
     public void onTabSelected(TabLayout.Tab tab) {
 
         viewPager2.setCurrentItem(tab.getPosition());
+
+        switch (tab.getPosition()) {
+            case 0:
+                ((TextView) requireActivity().findViewById(R.id.textTitle)).setText("Подключение");
+                break;
+            case 1:
+                ((TextView) requireActivity().findViewById(R.id.textTitle)).setText("Тепло");
+                break;
+            case 2:
+                ((TextView) requireActivity().findViewById(R.id.textTitle)).setText("Вентиляция");
+                break;
+            case 3:
+                ((TextView) requireActivity().findViewById(R.id.textTitle)).setText("Энергетика");
+                break;
+            case 4:
+                ((TextView) requireActivity().findViewById(R.id.textTitle)).setText("Энергетическая диаграмма");
+        }
+
         Objects.requireNonNull(tab.getIcon()).setColorFilter(new BlendModeColorFilter(ResourcesCompat.getColor(getResources(),R.color.colorGreen,null), BlendMode.SRC_IN));
         // tab.getIcon().setColorFilter(Color.parseColor("#32CD32"), PorterDuff.Mode.SRC_IN);
 

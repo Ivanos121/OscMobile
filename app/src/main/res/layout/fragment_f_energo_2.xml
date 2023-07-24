@@ -9,14 +9,5 @@
     <WebView
         android:id="@+id/vebView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_x="150dp"
-            android:layout_y="309dp"
-            android:src="@drawable/energo_scheme" />
-    </WebView>
+        android:layout_height="match_parent"/>
 </FrameLayout>
