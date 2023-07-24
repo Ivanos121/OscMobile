@@ -4,22 +4,381 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".F_energo">
+    android:layout_marginLeft="16dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="16dp"
+    android:layout_marginBottom="16dp"
+    android:orientation="vertical"
+    tools:context=".F_tepl">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/linearLayoutQuestion"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView27"
-            android:layout_width="wrap_content"
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="energo"
-            android:textSize="25sp"
-            tools:layout_editor_absoluteX="117dp"
-            tools:layout_editor_absoluteY="354dp" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:background="@color/colorBlack"
+            android:shrinkColumns="0"
+            android:stretchColumns="1">
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Величина"
+
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Значение"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="1dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Размерность"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Потребл двигат мощность" />
+
+                <TextView
+                    android:id="@+id/pe1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Вт"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Потери в обмотке статора" />
+
+                <TextView
+                    android:id="@+id/pucz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Вт"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Потери в стали" />
+
+                <TextView
+                    android:id="@+id/lchcc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Вт"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Добавочные потери" />
+
+                <TextView
+                    android:id="@+id/pucc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Вт"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Механические потери" />
+
+                <TextView
+                    android:id="@+id/lchcz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Вт"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Мощность на валу" />
+
+                <TextView
+                    android:id="@+id/stan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="Вт"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="КПД" />
+
+                <TextView
+                    android:id="@+id/Lchcc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="---"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="cos(f)" />
+
+                <TextView
+                    android:id="@+id/lchcpz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text=""
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="---"
+                    android:textAlignment="center" />
+            </TableRow>
+
+        </TableLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

@@ -25,7 +25,7 @@ import java.util.Objects;
 public class view_page_fragment extends Fragment implements TabLayout.OnTabSelectedListener {
 
     private ViewPager2 viewPager2;
-    private static final int NUM_PAGES = 4;
+    private static final int NUM_PAGES = 5;
     private FragmentStateAdapter pagerAdapter;
     LinearLayout linearLayout;
     private TabLayout tabLayout;
@@ -38,6 +38,7 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
         View view = inflater.inflate(R.layout.fragment_view_page_fragment, container, false);
 
         viewPager2 = view.findViewById(R.id.pager);
+        viewPager2.setPageTransformer(new DepthPageTransformer());
         linearLayout = view.findViewById(R.id.list);
         pagerAdapter = new view_page_fragment.ScreenSlidePageAdapter(this);
         viewPager2.setAdapter(pagerAdapter);
@@ -49,6 +50,7 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
         tabLayout.addTab(tabLayout.newTab().setText("T_2").setIcon(R.drawable.ic_baseline_waves));
         tabLayout.addTab(tabLayout.newTab().setText("T_3").setIcon(R.drawable.ic_baseline_stream));
         tabLayout.addTab(tabLayout.newTab().setText("T_4").setIcon(R.drawable.ic_baseline_star));
+        tabLayout.addTab(tabLayout.newTab().setText("T_41").setIcon(R.drawable.ic_baseline_star));
         tabLayout.addOnTabSelectedListener((TabLayout.OnTabSelectedListener) this);
 
        // tabLayout.setVisibility(View.GONE);
@@ -113,6 +115,9 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
                 case 3:
 
                     return new F_energo();
+                case 4:
+
+                    return new F_energo_2();
                 default:
                     return null;
             }
@@ -123,6 +128,44 @@ public class view_page_fragment extends Fragment implements TabLayout.OnTabSelec
             return NUM_PAGES;
         }
     }
+    public static class DepthPageTransformer implements ViewPager2.PageTransformer {
+        private static final float MIN_SCALE = 0.75f;
 
+        public void transformPage(View view, float position) {
+            int pageWidth = view.getWidth();
+
+            if (position < -1) { // [-Infinity,-1)
+                // This page is way off-screen to the left.
+                view.setAlpha(0f);
+
+            } else if (position <= 0) { // [-1,0]
+                // Use the default slide transition when moving to the left page.
+                view.setAlpha(1f);
+                view.setTranslationX(0f);
+                view.setTranslationZ(0f);
+                view.setScaleX(1f);
+                view.setScaleY(1f);
+
+            } else if (position <= 1) { // (0,1]
+                // Fade the page out.
+                view.setAlpha(1 - position);
+
+                // Counteract the default slide transition.
+                view.setTranslationX(pageWidth * -position);
+                // Move it behind the left page
+                view.setTranslationZ(-1f);
+
+                // Scale the page down (between MIN_SCALE and 1).
+                float scaleFactor = MIN_SCALE
+                        + (1 - MIN_SCALE) * (1 - Math.abs(position));
+                view.setScaleX(scaleFactor);
+                view.setScaleY(scaleFactor);
+
+            } else { // (1,+Infinity]
+                // This page is way off-screen to the right.
+                view.setAlpha(0f);
+            }
+        }
+    }
 
 }

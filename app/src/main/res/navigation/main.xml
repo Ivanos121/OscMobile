@@ -74,5 +74,10 @@
             android:name="com.example.myapplication.F_electromagn"
             android:label="F_electromagn" />
     </navigation>
+    <fragment
+        android:id="@+id/f_energo_2"
+        android:name="com.example.myapplication.f_energo_2"
+        android:label="fragment_f_energo_2"
+        tools:layout="@layout/fragment_f_energo_2" />
 
 </navigation>

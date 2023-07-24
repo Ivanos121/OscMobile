@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
     private Menu menu;
 
     private FragmentStateAdapter pagerAdapter;
-    private FragmentTransaction frag;
 
     final OnBackPressedCallback onBackPressedCallback = new OnBackPressedCallback(true)
     {
