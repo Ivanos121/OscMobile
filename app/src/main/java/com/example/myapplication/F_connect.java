@@ -24,11 +24,18 @@ import java.net.MalformedURLException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.Objects;
+import android.util.Log;
+import java.net.Socket;
 
 public class F_connect extends Fragment {
 
     TextView t1,t2,t3,t4,t5,t6;
     Button bb1;
+
+    private  String     HOST      = "10.120.51.22";
+    private  int        PORT      = 9876;
+    private  String     LOG_TAG   = "SOCKET";
+    private MainActivity.Connection mConnect  = null;
 
     public static final String APP_PREFERENCES = "deviceNetworkSettings";
     public static final String APP_PREFERENCES_IP = "ip_address";
@@ -108,8 +115,6 @@ public class F_connect extends Fragment {
                                 public void run() {
                                     t1.setVisibility(View.VISIBLE);
                                     t1.setText(name);
-                                    t2.setText("Устройство2");
-                                    b2.setVisibility(View.VISIBLE);
                                 }
                             });
 
@@ -130,7 +135,7 @@ public class F_connect extends Fragment {
                                 @Override
                                 public void run() {
                                     t1.setVisibility(View.VISIBLE);
-                                    t1.setText("Не найдено");
+                                    t1.setText("Устройство 1 не найдено");
                                 }
                             });
                         } catch (JSONException e) {
@@ -147,7 +152,30 @@ public class F_connect extends Fragment {
                     }
                 }).start();
             }
+
         });
+        mConnect = new MainActivity.Connection(HOST, PORT);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    mConnect.openConnection();
+                    Log.d(LOG_TAG, "Соединение установлено");
+                    Log.d(LOG_TAG, "(mConnect != null) = "
+                            + (mConnect != null));
+                    t2.setText("Устройство2");
+                    b2.setVisibility(View.VISIBLE);
+                } catch (Exception e) {
+                    Log.e(LOG_TAG, e.getMessage());
+                    mConnect = null;
+                    mConnect.closeConnection();
+                    t2.setVisibility(View.VISIBLE);
+                    t2.setText("Устройство 2 не найдено");
+
+                }
+            }
+        }).start();
+
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), callback);
         return view;

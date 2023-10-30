@@ -1,7 +1,5 @@
 package com.example.myapplication;
 
-import static androidx.fragment.app.FragmentManager.TAG;
-
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
@@ -23,9 +21,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -37,7 +32,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.Objects;
+import java.io.IOException;
+import java.net.Socket;
 
 public class MainActivity extends AppCompatActivity {
         //implements TabLayout.OnTabSelectedListener {
@@ -206,6 +202,78 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onFragment9BackClick() {
         navController.navigate(R.id.action_f_about_to_f_start);
+    }
+
+    public static class Connection
+    {
+        private Socket mSocket = null;
+        private  String  mHost   = null;
+        private  int     mPort   = 0;
+
+        public static final String LOG_TAG = "SOCKET";
+
+        public Connection() {}
+
+        public Connection (final String host, final int port)
+        {
+            this.mHost = host;
+            this.mPort = port;
+        }
+
+        // Метод открытия сокета
+        public void openConnection() throws Exception
+        {
+            // Если сокет уже открыт, то он закрывается
+            closeConnection();
+            try {
+                // Создание сокета
+                mSocket = new Socket(mHost, mPort);
+            } catch (IOException e) {
+                throw new Exception("Невозможно создать сокет: "
+                        + e.getMessage());
+            }
+        }
+        /**
+         * Метод закрытия сокета
+         */
+        public void closeConnection()
+        {
+            if (mSocket != null && !mSocket.isClosed()) {
+                try {
+                    mSocket.close();
+                } catch (IOException e) {
+                    Log.e(LOG_TAG, "Ошибка при закрытии сокета :"
+                            + e.getMessage());
+                } finally {
+                    mSocket = null;
+                }
+            }
+            mSocket = null;
+        }
+        /**
+         * Метод отправки данных
+         */
+        public void sendData(byte[] data) throws Exception {
+            // Проверка открытия сокета
+            if (mSocket == null || mSocket.isClosed()) {
+                throw new Exception("Ошибка отправки данных. " +
+                        "Сокет не создан или закрыт");
+            }
+            // Отправка данных
+            try {
+                mSocket.getOutputStream().write(data);
+                mSocket.getOutputStream().flush();
+            } catch (IOException e) {
+                throw new Exception("Ошибка отправки данных : "
+                        + e.getMessage());
+            }
+        }
+        @Override
+        protected void finalize() throws Throwable
+        {
+            super.finalize();
+            closeConnection();
+        }
     }
 }
 
