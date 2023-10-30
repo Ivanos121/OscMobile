@@ -55,6 +55,9 @@ public class F_connect extends Fragment {
         TextView t1 = (TextView) view.findViewById(R.id.textView26);
         t1.setVisibility(View.GONE);
 
+        TextView t2 = (TextView) view.findViewById(R.id.textView30);
+        t2.setVisibility(View.GONE);
+
         Button b2 = (Button) view.findViewById(R.id.button7);
 
         b2.setOnClickListener(new View.OnClickListener()
@@ -105,6 +108,7 @@ public class F_connect extends Fragment {
                                 public void run() {
                                     t1.setVisibility(View.VISIBLE);
                                     t1.setText(name);
+                                    t2.setText("Устройство2");
                                     b2.setVisibility(View.VISIBLE);
                                 }
                             });
@@ -116,7 +120,9 @@ public class F_connect extends Fragment {
                                 @Override
                                 public void run() {
                                     t1.setVisibility(View.VISIBLE);
-                                    t1.setText("Не найдено");
+                                    t1.setText("Устройство 1 не найдено");
+                                    t2.setVisibility(View.VISIBLE);
+                                    t2.setText("Устройство 2 не найдено");
                                 }
                             });
                         } catch (IOException e) {
