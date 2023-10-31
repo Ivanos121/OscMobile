@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="192.168.100.10"
+                    android:text="10.10.100.254"
                     android:visibility="visible" />
 
                 <TextView
@@ -89,13 +89,12 @@
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/editTextNumberDecima3"
+                    android:id="@+id/editTextNumber2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="192.168.100.10"
-                    android:visibility="visible" />
+                    android:inputType="number"
+                    android:text="8899"/>
 
                 <TextView
                     android:id="@+id/textView8"
@@ -175,5 +174,6 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tableLayout3" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

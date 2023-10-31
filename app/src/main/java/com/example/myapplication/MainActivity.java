@@ -33,7 +33,9 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 
 public class MainActivity extends AppCompatActivity {
         //implements TabLayout.OnTabSelectedListener {
@@ -227,7 +229,10 @@ public class MainActivity extends AppCompatActivity {
             closeConnection();
             try {
                 // Создание сокета
-                mSocket = new Socket(mHost, mPort);
+                //mSocket = new Socket(mHost, mPort);
+                mSocket = new Socket();
+                SocketAddress socketAddress = new InetSocketAddress(mHost, mPort);
+                mSocket.connect(socketAddress, 5000);
             } catch (IOException e) {
                 throw new Exception("Невозможно создать сокет: "
                         + e.getMessage());
